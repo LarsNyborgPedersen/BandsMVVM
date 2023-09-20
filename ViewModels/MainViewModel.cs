@@ -12,6 +12,8 @@ namespace Core.ViewModels
         public ObservableCollection<Person> Persons { get; set; }
 
         private IBandService _bandService;
+        public ICommand AddBandCommand { get; private set; }
+        public ICommand AddPersonCommand { get; private set; }
 
         public MainViewModel()
         {
@@ -23,8 +25,7 @@ namespace Core.ViewModels
         }
 
 
-        public ICommand AddBandCommand { get; private set; }
-        public ICommand AddPersonCommand { get; private set; }
+        
 
         private void AddBand()
         {
