@@ -9,14 +9,21 @@ namespace Core.Services
         private List<Band> _bands = new List<Band>();
         private List<Person> _people = new List<Person>();
 
-        public void AddBand(Band band)
+        public Band AddBand(string name)
         {
-            _bands.Add(band);
+            Band newBand = new Band(name);
+
+            _bands.Add(newBand);
+            return newBand;
+
         }
 
-        public void AddPerson(Person person)
+        public Person AddPerson(string name)
         {
-            _people.Add(person);
+            Person newPerson = new Person(name);
+
+            _people.Add(newPerson);
+            return newPerson;
         }
 
         public void AssociatePersonToBand(Person person, Band band)

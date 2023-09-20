@@ -5,8 +5,8 @@ namespace Core.Interfaces
 {
     public interface IBandService
     {
-        void AddBand(Band band);
-        void AddPerson(Person person);
+        Band AddBand(string name);
+        Person AddPerson(string name);
         void AssociatePersonToBand(Person person, Band band);
         List<Band> GetAllBands();
     }

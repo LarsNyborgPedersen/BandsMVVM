@@ -23,16 +23,15 @@ namespace WinFormsFrontend
 
         private void addBandButton_Click(object sender, EventArgs e)
         {
-            var bandName = bandNameTextBox.Text;
+            string bandName = bandNameTextBox.Text;
             if (string.IsNullOrWhiteSpace(bandName))
             {
                 MessageBox.Show("Please enter a valid band name.");
                 return;
             }
-            var band = new Band { Name = bandName };
-            _viewModel.AddBandCommand.Execute(null);  // This assumes you have the command set up
+            _viewModel.AddBandCommand.Execute(bandName);  // This assumes you have the command set up
             bandListBox.DataSource = null;
-            bandListBox.DataSource = _viewModel.Bands;  // Refresh the data binding
+            bandListBox.DataSource = _viewModel.Bands.Select(o => o.Name).ToList();  // Refresh the data binding
         }
 
         private void addPersonButton_Click(object sender, EventArgs e)
@@ -43,10 +42,9 @@ namespace WinFormsFrontend
                 MessageBox.Show("Please enter a valid person name.");
                 return;
             }
-            var person = new Person { Name = personName };
-            _viewModel.AddPersonCommand.Execute(null);  // This assumes you have the command set up
+            _viewModel.AddPersonCommand.Execute(personName);  // This assumes you have the command set up
             personListBox.DataSource = null;
-            personListBox.DataSource = _viewModel.Persons;  // Refresh the data binding
+            personListBox.DataSource = _viewModel.Persons.Select(o => o.Name).ToList();  // Refresh the data binding
         }
 
         // Any other methods for additional operations can be added similarly

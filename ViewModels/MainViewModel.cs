@@ -19,20 +19,19 @@ namespace Core.ViewModels
         {
             _bandService = new BandService();
             Bands = new ObservableCollection<Band>();
+            Persons = new ObservableCollection<Person>();
 
-            AddBandCommand = new RelayCommand(_ => AddBand(), _ => CanAddBand());
-            AddPersonCommand = new RelayCommand(_ => AddPerson(), _ => CanAddPerson());
+            AddBandCommand = new RelayCommand(name => AddBand((string) name), _ => CanAddBand());
+            AddPersonCommand = new RelayCommand(name => AddPerson((string) name), _ => CanAddPerson());
         }
 
 
         
 
-        private void AddBand()
+        private void AddBand(string bandName)
         {
-            // Implement logic to add a band
-            var band = new Band { Name = "New Band" }; // Modify as per your requirements
-            _bandService.AddBand(band);
-            Bands.Add(band);
+            Band newBand = _bandService.AddBand(bandName);
+            Bands.Add(newBand);
         }
 
         private bool CanAddBand()
@@ -42,12 +41,10 @@ namespace Core.ViewModels
             return true; // For simplicity, we allow adding bands anytime
         }
 
-        private void AddPerson()
+        private void AddPerson(string name)
         {
-            // Implement logic to add a person
-            var person = new Person { Name = "New Person" }; // Modify as per your requirements
-            _bandService.AddPerson(person);
-            // Optionally: Update a Persons collection if you have one in ViewModel
+            var person = _bandService.AddPerson(name);
+            Persons.Add(person);
         }
 
         private bool CanAddPerson()

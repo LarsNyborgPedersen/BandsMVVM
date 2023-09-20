@@ -11,8 +11,7 @@ namespace UnitTests
         public void Test_AddBand()
         {
             var service = new BandService();
-            var band = new Band { Name = "Sample Band" };
-            service.AddBand(band);
+            service.AddBand("Sample band");
 
             var bands = service.GetAllBands();
             Assert.AreEqual(1, bands.Count);
