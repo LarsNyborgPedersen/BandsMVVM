@@ -17,7 +17,5 @@ namespace UnitTests
             Assert.AreEqual(1, bands.Count);
             Assert.AreEqual("Sample Band", bands[0].Name);
         }
-
-        // ... More unit tests for other functionalities ...
     }
 }

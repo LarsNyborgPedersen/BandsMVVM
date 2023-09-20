@@ -12,6 +12,8 @@ namespace Core.ViewModels
         public ObservableCollection<string> BandNames => 
             (ObservableCollection<string>) Bands.Select(o => o.Name);
         public ObservableCollection<Person> Persons { get; set; }
+        public ObservableCollection<string> PersonNames =>
+            (ObservableCollection<string>) Persons.Select(o => o.Name);
 
         private IBandService _bandService;
         public ICommand AddBandCommand { get; private set; }
@@ -27,9 +29,6 @@ namespace Core.ViewModels
             AddPersonCommand = new RelayCommand(name => AddPerson((string) name), _ => CanAddPerson());
         }
 
-
-        
-
         private void AddBand(string bandName)
         {
             Band newBand = _bandService.AddBand(bandName);
@@ -38,9 +37,7 @@ namespace Core.ViewModels
 
         private bool CanAddBand()
         {
-            // Logic to decide if a band can be added
-            // Example: return !string.IsNullOrEmpty(SomeBandNameProperty);
-            return true; // For simplicity, we allow adding bands anytime
+            return true;
         }
 
         private void AddPerson(string name)
@@ -51,9 +48,7 @@ namespace Core.ViewModels
 
         private bool CanAddPerson()
         {
-            // Logic to decide if a person can be added
-            // Example: return !string.IsNullOrEmpty(SomePersonNameProperty);
-            return true; // For simplicity, we allow adding persons anytime
+            return true;
         }
     }
 }

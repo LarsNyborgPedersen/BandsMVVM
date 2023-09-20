@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Core.Models;
+﻿using Core.Models;
 using Core.Interfaces;
 
 namespace Core.Services

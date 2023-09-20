@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace WPFFrontend
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainViewModel ViewModel { get; set; }

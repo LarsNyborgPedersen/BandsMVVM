@@ -1,7 +1,3 @@
-using System;
-using System.Windows.Forms;
-using Core.Models;
-using Core.Services;
 using Core.ViewModels;
 
 namespace WinFormsFrontend
@@ -15,10 +11,8 @@ namespace WinFormsFrontend
             InitializeComponent();
             _viewModel = new MainViewModel();
 
-            // Manual data binding
             bandListBox.DataSource = _viewModel.BandNames;
-            // Assuming you have a personListBox to list persons
-            personListBox.DataSource = _viewModel.PersonNames; // This would require you to add a Persons ObservableCollection in your MainViewModel
+            personListBox.DataSource = _viewModel.PersonNames;
         }
 
         private void addBandButton_Click(object sender, EventArgs e)
@@ -29,9 +23,9 @@ namespace WinFormsFrontend
                 MessageBox.Show("Please enter a valid band name.");
                 return;
             }
-            _viewModel.AddBandCommand.Execute(bandName);  // This assumes you have the command set up
+            _viewModel.AddBandCommand.Execute(bandName);
             bandListBox.DataSource = null;
-            bandListBox.DataSource = _viewModel.BandNames;  // Refresh the data binding
+            bandListBox.DataSource = _viewModel.BandNames; 
         }
 
         private void addPersonButton_Click(object sender, EventArgs e)
@@ -42,11 +36,9 @@ namespace WinFormsFrontend
                 MessageBox.Show("Please enter a valid person name.");
                 return;
             }
-            _viewModel.AddPersonCommand.Execute(personName);  // This assumes you have the command set up
+            _viewModel.AddPersonCommand.Execute(personName);
             personListBox.DataSource = null;
-            personListBox.DataSource = _viewModel.PersonNames;  // Refresh the data binding
+            personListBox.DataSource = _viewModel.PersonNames;
         }
-
-        // Any other methods for additional operations can be added similarly
     }
 }
