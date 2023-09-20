@@ -16,9 +16,9 @@ namespace WinFormsFrontend
             _viewModel = new MainViewModel();
 
             // Manual data binding
-            bandListBox.DataSource = _viewModel.Bands;
+            bandListBox.DataSource = _viewModel.BandNames;
             // Assuming you have a personListBox to list persons
-            personListBox.DataSource = _viewModel.Persons; // This would require you to add a Persons ObservableCollection in your MainViewModel
+            personListBox.DataSource = _viewModel.PersonNames; // This would require you to add a Persons ObservableCollection in your MainViewModel
         }
 
         private void addBandButton_Click(object sender, EventArgs e)
