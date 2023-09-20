@@ -1,6 +1,7 @@
 ﻿using Core.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,19 @@ namespace WPFFrontend
         public MainWindow()
         {
             InitializeComponent();
+            ViewModel = new MainViewModel();
+            DataContext = ViewModel;
+        }
+
+        private void BtnAddBand_Click(object sender, RoutedEventArgs e)
+        {
+            string bandName = TbBandName.Text;
+            ViewModel.AddBandCommand.Execute(bandName);
+        }
+
+        private void BtnAddPerson_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

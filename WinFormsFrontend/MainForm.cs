@@ -17,26 +17,26 @@ namespace WinFormsFrontend
 
         private void addBandButton_Click(object sender, EventArgs e)
         {
-            string bandName = bandNameTextBox.Text;
-            if (string.IsNullOrWhiteSpace(bandName))
+            _viewModel.BandName = TbBandName.Text;
+            if (string.IsNullOrWhiteSpace(_viewModel.BandName))
             {
                 MessageBox.Show("Please enter a valid band name.");
                 return;
             }
-            _viewModel.AddBandCommand.Execute(bandName);
+            _viewModel.AddBandCommand.Execute(null);
             bandListBox.DataSource = null;
-            bandListBox.DataSource = _viewModel.BandNames; 
+            bandListBox.DataSource = _viewModel.BandNames;
         }
 
         private void addPersonButton_Click(object sender, EventArgs e)
         {
-            var personName = personNameTextBox.Text;
-            if (string.IsNullOrWhiteSpace(personName))
+            _viewModel.PersonName = personNameTextBox.Text;
+            if (string.IsNullOrWhiteSpace(_viewModel.PersonName))
             {
                 MessageBox.Show("Please enter a valid person name.");
                 return;
             }
-            _viewModel.AddPersonCommand.Execute(personName);
+            _viewModel.AddPersonCommand.Execute(null);
             personListBox.DataSource = null;
             personListBox.DataSource = _viewModel.PersonNames;
         }

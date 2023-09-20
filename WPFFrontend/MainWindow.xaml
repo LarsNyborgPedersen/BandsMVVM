@@ -7,9 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Add Band" Command="{Binding AddBandCommand}" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="Add Person" Command="{Binding AddPersonCommand}" Width="100" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-        <ListBox ItemsSource="{Binding Bands}" DisplayMemberPath="Name" Height="200" VerticalAlignment="Bottom"/>
-        <ListBox ItemsSource="{Binding People}" DisplayMemberPath="Name" Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Text="{Binding BandName, UpdateSourceTrigger=PropertyChanged}" Name="TbBandName" Width="200" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+            <TextBox Text="{Binding PersonName, UpdateSourceTrigger=PropertyChanged}" Width="200" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+            <Button Content="Add Band" Command="{Binding AddBandCommand}" Width="100" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+            <Button Content="Add Person" Command="{Binding AddPersonCommand}" Width="100" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+            <ListBox ItemsSource="{Binding Bands, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Name" Height="200" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="0"/>
+            <ListBox ItemsSource="{Binding Persons, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Name" Height="200" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1"/>
+        </Grid>
+
     </Grid>
 </Window>

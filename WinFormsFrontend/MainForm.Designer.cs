@@ -28,54 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bandListBox = new System.Windows.Forms.ListBox();
-            this.personListBox = new System.Windows.Forms.ListBox();
-            this.bandNameTextBox = new System.Windows.Forms.TextBox();
-            this.personNameTextBox = new System.Windows.Forms.TextBox();
-            this.addBandButton = new System.Windows.Forms.Button();
-            this.addPersonButton = new System.Windows.Forms.Button();
-
+            bandListBox = new ListBox();
+            personListBox = new ListBox();
+            TbBandName = new TextBox();
+            personNameTextBox = new TextBox();
+            addBandButton = new Button();
+            addPersonButton = new Button();
+            SuspendLayout();
+            // 
             // bandListBox
-            this.bandListBox.Location = new System.Drawing.Point(13, 13);
-            this.bandListBox.Size = new System.Drawing.Size(120, 95);
-            this.Controls.Add(this.bandListBox);
-
+            // 
+            bandListBox.ItemHeight = 20;
+            bandListBox.Location = new Point(13, 13);
+            bandListBox.Name = "bandListBox";
+            bandListBox.Size = new Size(120, 84);
+            bandListBox.TabIndex = 0;
+            // 
             // personListBox
-            this.personListBox.Location = new System.Drawing.Point(150, 13);
-            this.personListBox.Size = new System.Drawing.Size(120, 95);
-            this.Controls.Add(this.personListBox);
-
-            // bandNameTextBox
-            this.bandNameTextBox.Location = new System.Drawing.Point(13, 115);
-            this.Controls.Add(this.bandNameTextBox);
-
+            // 
+            personListBox.ItemHeight = 20;
+            personListBox.Location = new Point(150, 13);
+            personListBox.Name = "personListBox";
+            personListBox.Size = new Size(120, 84);
+            personListBox.TabIndex = 1;
+            // 
+            // TbBandName
+            // 
+            TbBandName.Location = new Point(13, 115);
+            TbBandName.Name = "TbBandName";
+            TbBandName.Size = new Size(100, 27);
+            TbBandName.TabIndex = 2;
+            // 
             // personNameTextBox
-            this.personNameTextBox.Location = new System.Drawing.Point(150, 115);
-            this.Controls.Add(this.personNameTextBox);
-
+            // 
+            personNameTextBox.Location = new Point(150, 115);
+            personNameTextBox.Name = "personNameTextBox";
+            personNameTextBox.Size = new Size(100, 27);
+            personNameTextBox.TabIndex = 3;
+            // 
             // addBandButton
-            this.addBandButton.Location = new System.Drawing.Point(13, 145);
-            this.addBandButton.Text = "Add Band";
-            this.addBandButton.Click += new System.EventHandler(this.addBandButton_Click);
-            this.Controls.Add(this.addBandButton);
-
+            // 
+            addBandButton.Location = new Point(13, 145);
+            addBandButton.Name = "addBandButton";
+            addBandButton.Size = new Size(75, 23);
+            addBandButton.TabIndex = 4;
+            addBandButton.Text = "Add Band";
+            addBandButton.Click += addBandButton_Click;
+            // 
             // addPersonButton
-            this.addPersonButton.Location = new System.Drawing.Point(150, 145);
-            this.addPersonButton.Text = "Add Person";
-            this.addPersonButton.Click += new System.EventHandler(this.addPersonButton_Click);
-            this.Controls.Add(this.addPersonButton);
-
+            // 
+            addPersonButton.Location = new Point(150, 145);
+            addPersonButton.Name = "addPersonButton";
+            addPersonButton.Size = new Size(75, 23);
+            addPersonButton.TabIndex = 5;
+            addPersonButton.Text = "Add Person";
+            addPersonButton.Click += addPersonButton_Click;
+            // 
             // MainForm
-            this.ClientSize = new System.Drawing.Size(300, 200); // adjust as needed
-            this.Name = "MainForm";
-            this.Text = "Band Management";
+            // 
+            ClientSize = new Size(300, 200);
+            Controls.Add(bandListBox);
+            Controls.Add(personListBox);
+            Controls.Add(TbBandName);
+            Controls.Add(personNameTextBox);
+            Controls.Add(addBandButton);
+            Controls.Add(addPersonButton);
+            Name = "MainForm";
+            Text = "Band Management";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private System.Windows.Forms.ListBox bandListBox;
         private System.Windows.Forms.ListBox personListBox;
-        private System.Windows.Forms.TextBox bandNameTextBox;
+        private System.Windows.Forms.TextBox TbBandName;
         private System.Windows.Forms.TextBox personNameTextBox;
         private System.Windows.Forms.Button addBandButton;
         private System.Windows.Forms.Button addPersonButton;
