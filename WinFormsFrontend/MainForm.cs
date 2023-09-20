@@ -31,7 +31,7 @@ namespace WinFormsFrontend
             }
             _viewModel.AddBandCommand.Execute(bandName);  // This assumes you have the command set up
             bandListBox.DataSource = null;
-            bandListBox.DataSource = _viewModel.Bands.Select(o => o.Name).ToList();  // Refresh the data binding
+            bandListBox.DataSource = _viewModel.BandNames;  // Refresh the data binding
         }
 
         private void addPersonButton_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace WinFormsFrontend
             }
             _viewModel.AddPersonCommand.Execute(personName);  // This assumes you have the command set up
             personListBox.DataSource = null;
-            personListBox.DataSource = _viewModel.Persons.Select(o => o.Name).ToList();  // Refresh the data binding
+            personListBox.DataSource = _viewModel.PersonNames;  // Refresh the data binding
         }
 
         // Any other methods for additional operations can be added similarly

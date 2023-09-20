@@ -9,6 +9,8 @@ namespace Core.ViewModels
     public class MainViewModel
     {
         public ObservableCollection<Band> Bands { get; set; }
+        public ObservableCollection<string> BandNames => 
+            (ObservableCollection<string>) Bands.Select(o => o.Name);
         public ObservableCollection<Person> Persons { get; set; }
 
         private IBandService _bandService;
